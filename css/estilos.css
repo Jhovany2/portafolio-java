@@ -1,0 +1,132 @@
+:root {
+  --color-principal: rgba(220, 220, 220, 0.8);
+  --color-secundario: #000000;
+  --color-fondo: #F4F4F4;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('../images/fondo.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #000;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--color-principal);
+}
+
+header .logo {
+  width: 100px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: var(--color-secundario);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+main {
+  flex: 1; /* ocupa todo el espacio disponible */
+  padding: 20px;
+  text-align: center;
+}
+
+main .imagen-carrera {
+  width: 60%;
+  max-width: 500px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid var(--color-principal);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+main .objetivo, main .sobre-mi, main .mision-vision {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 900px;
+  text-align: justify;
+  color: #000;
+}
+
+main .objetivo h3, main .sobre-mi h3, main .mision-vision h3 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Lista de proyectos horizontal con botones transparentes */
+main .lista-proyectos ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  gap: 15px;
+}
+
+main .lista-proyectos ul li {
+  margin: 0;
+}
+
+main .lista-proyectos ul li a {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: rgba(220,220,220,0.3); /* transparente plomo */
+  color: var(--color-secundario);
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid var(--color-secundario);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+main .lista-proyectos ul li a:hover {
+  background-color: rgba(220,220,220,0.5); /* un poco más oscuro al pasar el mouse */
+  transform: scale(1.05); /* efecto de crecimiento */
+  color: var(--color-secundario);
+}
+
+/* Footer siempre abajo */
+footer {
+  background-color: var(--color-secundario);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
