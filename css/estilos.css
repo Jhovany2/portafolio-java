@@ -2,6 +2,7 @@
   --color-principal: rgba(220, 220, 220, 0.8);
   --color-secundario: #000000;
   --color-fondo: #F4F4F4;
+  --color-upla: #004080; /* azul institucional */
 }
 
 html, body {
@@ -22,25 +23,78 @@ body {
   color: #000;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--color-principal);
+/* --- Franja azul superior institucional --- */
+.barra-superior {
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-upla);
 }
 
+/* --- Encabezado superior --- */
+header {
+  background-color: var(--color-principal);
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+}
+
+/* Logo centrado arriba del título */
 header .logo {
   width: 100px;
+  height: auto;
   display: block;
   margin: 0 auto 10px auto;
 }
 
+/* Título centrado en el header */
+header h1 {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: #000;
+  margin: 5px 0 10px 0;
+}
+
+/* --- Perfil (foto y nombre) en esquina superior derecha --- */
+.perfil {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  text-align: center;
+}
+
+.foto-perfil {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 3px solid var(--color-upla);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 64, 128, 0.6);
+}
+
+.nombre-perfil {
+  font-weight: bold;
+  margin-top: 5px;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+/* --- Navegación --- */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 15px 0 0 0;
+  text-align: center;
 }
 
 nav ul li {
-  display: inline;
+  display: inline-block;
   margin: 0 15px;
 }
 
@@ -54,14 +108,21 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: var(--color-principal);
+  background-color: var(--color-upla);
   color: white;
 }
 
+/* --- Cuerpo principal --- */
 main {
-  flex: 1; /* ocupa todo el espacio disponible */
+  flex: 1;
   padding: 20px;
   text-align: center;
+}
+
+main h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
 }
 
 main .imagen-carrera {
@@ -90,39 +151,47 @@ main .objetivo h3, main .sobre-mi h3, main .mision-vision h3 {
   margin-bottom: 15px;
 }
 
-/* Lista de proyectos horizontal con botones transparentes */
-main .lista-proyectos ul {
+/* ====== Diseño de columnas para las semanas ====== */
+.contenedor-columnas {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  padding: 0;
-  list-style: none;
-  gap: 15px;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-main .lista-proyectos ul li {
-  margin: 0;
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
-main .lista-proyectos ul li a {
+/* 🔹 Botones más oscuros y transparentes */
+.columna a {
   display: inline-block;
-  padding: 12px 20px;
-  background-color: rgba(220,220,220,0.3); /* transparente plomo */
-  color: var(--color-secundario);
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid var(--color-secundario);
+  width: 160px;
+  padding: 10px 0;
+  text-align: center;
+  background-color: rgba(80, 80, 80, 0.25); /* gris oscuro translúcido */
+  border: 2px solid rgba(0, 0, 0, 0.7);
   border-radius: 12px;
+  color: var(--color-secundario);
+  font-weight: bold;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-main .lista-proyectos ul li a:hover {
-  background-color: rgba(220,220,220,0.5); /* un poco más oscuro al pasar el mouse */
-  transform: scale(1.05); /* efecto de crecimiento */
-  color: var(--color-secundario);
+.columna a:hover {
+  background-color: rgba(0, 64, 128, 0.3); /* tono azul más oscuro */
+  transform: scale(1.05);
+  border-color: var(--color-upla);
+  color: var(--color-upla);
+  box-shadow: 0 0 8px rgba(0, 64, 128, 0.4);
 }
 
-/* Footer siempre abajo */
+/* --- Footer siempre abajo --- */
 footer {
   background-color: var(--color-secundario);
   color: white;
